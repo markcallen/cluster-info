@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 type ClusterInfo = {
   podName: string;
@@ -16,14 +16,14 @@ function App() {
   const loadInfo = async () => {
     try {
       setError(null);
-      const res = await fetch("/api/info");
+      const res = await fetch('/api/info');
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
       }
       const data = (await res.json()) as ClusterInfo;
       setInfo(data);
     } catch (err: any) {
-      setError(err.message ?? "Failed to load cluster info");
+      setError(err.message ?? 'Failed to load cluster info');
     }
   };
 

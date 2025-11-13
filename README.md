@@ -138,7 +138,6 @@ The repository contains a workflow in
 ### Setup steps
 
 1. Create the following GitHub Actions secrets:
-
    - `DOCKERHUB_USERNAME` – your Docker Hub username
    - `DOCKERHUB_TOKEN` – a Docker Hub access token or password
 

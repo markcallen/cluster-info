@@ -34,9 +34,9 @@ spec:
                 fieldRef:
                   fieldPath: spec.nodeName
             - name: CLUSTER_NAME
-              value: "demo-cluster"
+              value: 'demo-cluster'
             - name: APP_VERSION
-              value: "1.0.0"
+              value: '1.0.0'
           readinessProbe:
             httpGet:
               path: /readyz
