@@ -22,8 +22,10 @@ function App() {
       }
       const data = (await res.json()) as ClusterInfo;
       setInfo(data);
-    } catch (err: any) {
-      setError(err.message ?? 'Failed to load cluster info');
+    } catch (err: unknown) {
+      setError(
+        err instanceof Error ? err.message : 'Failed to load cluster info'
+      );
     }
   };
 
@@ -51,7 +53,7 @@ function App() {
           </div>
         )}
 
-        {info ? (
+        {info && (
           <div className="space-y-3">
             <div>
               <h2 className="text-sm font-medium text-slate-400 uppercase tracking-wide">
@@ -89,15 +91,17 @@ function App() {
             </div>
 
             <button
-              onClick={loadInfo}
               className="mt-2 inline-flex items-center justify-center rounded-md border border-emerald-500/70 px-3 py-1.5 text-xs font-medium text-emerald-100 hover:bg-emerald-500/10"
+              onClick={loadInfo}
             >
               Refresh info
             </button>
           </div>
-        ) : !error ? (
+        )}
+
+        {!info && !error && (
           <p className="text-sm text-slate-300">Loading cluster info…</p>
-        ) : null}
+        )}
       </div>
     </div>
   );

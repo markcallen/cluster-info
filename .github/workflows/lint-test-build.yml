@@ -25,6 +25,9 @@ jobs:
       - name: Run linters
         run: npm run lint
 
+      - name: Check code formatting
+        run: npm run prettier
+
       - name: Run Unit Tests
         run: npm run test
 

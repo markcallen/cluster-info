@@ -2,11 +2,14 @@
   "name": "cluster-info",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run dev:server & npm run dev:frontend",
+    "dev:server": "POD_NAME=local-pod POD_NAMESPACE=local-namespace NODE_NAME=local-node CLUSTER_NAME=local-cluster APP_VERSION=0.1.0 PORT=3001 tsx server/index.ts",
+    "dev:frontend": "vite",
     "build": "vite build",
-    "preview": "node server/index.mjs",
-    "start": "node server/index.mjs",
+    "preview": "tsx server/index.ts",
+    "start": "tsx server/index.ts",
     "test": "echo no tests",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -28,7 +31,10 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
@@ -36,16 +42,13 @@
     "prettier": "^3.6.2",
     "tailwindcss": "^3.4.13",
     "tsc-files": "^1.1.4",
+    "tsx": "^4.21.0",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^5.4.8"
   },
   "lint-staged": {
-    "**/*.js": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "**/*.ts": [
+    "**/*.{ts,tsx}": [
       "tsc-files --noEmit",
       "prettier --write",
       "eslint --fix"
