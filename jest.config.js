@@ -5,14 +5,14 @@ export default {
     '^.+\\.tsx?$': [
       'ts-jest',
       {
-        useESM: true,
-      },
-    ],
+        useESM: true
+      }
+    ]
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  testMatch: ['**/__tests__/**/*.test.ts?(x)', '**/*.test.ts?(x)'],
+  testMatch: ['**/__tests__/**/*.test.ts?(x)', '**/*.test.ts?(x)']
 };
