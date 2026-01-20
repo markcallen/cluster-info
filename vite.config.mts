@@ -8,6 +8,9 @@ export default defineConfig({
     sourcemap: false
   },
   server: {
-    allowedHosts: ['06ab2c4da281.ngrok-free.app']
+    allowedHosts: ['.ngrok-free.app', '.ngrok.io', '.ngrok.app'],
+    proxy: {
+      '/api': 'http://localhost:3001'
+    }
   }
 });

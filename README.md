@@ -13,13 +13,19 @@ style walkthroughs.
 
 ## Prerequisites
 
-- Node.js 22+
+- Node.js 22+ (use [nvm](https://github.com/nvm-sh/nvm) to install and manage Node.js versions)
 - npm (or your preferred package manager)
 - Docker (for container builds)
 - A Kubernetes cluster (kind, k3s, GKE, etc.) for deployment
 - Optional: Argo CD installed in the `argocd` namespace
 
 ## Local development
+
+Setup node:
+
+```bash
+nvm install
+```
 
 Install dependencies:
 
