@@ -16,7 +16,7 @@
 - `npm run lint:fix` - Run ESLint with auto-fix
 - `npm run prettier` - Check code formatting
 - `npm run prettier:fix` - Fix code formatting
-- `npm test` - Run tests (currently no tests configured)
+- `npm test` - Run Jest tests
 
 ### Build Process
 
@@ -85,10 +85,12 @@
 
 ### Testing
 
-- Currently no tests configured
-- When adding tests, they should be colocated with components
+- Jest with React Testing Library configured
+- Tests are colocated with components (e.g., `App.test.tsx` next to `App.tsx`)
 - Use descriptive test names that explain the behavior
-- Mock external dependencies in tests
+- Mock fetch API and external dependencies in tests
+- Import jest globals for ESM: `import { jest, describe, it, expect } from '@jest/globals'`
+- Run tests with `npm test`
 
 ### Git Hooks
 
